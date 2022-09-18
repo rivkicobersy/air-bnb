@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   #hi jules heres
   #hello all
+  # Wyetta here. Are we having fun yet?
 end
