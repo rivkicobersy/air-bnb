@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   #hi jules heres
   #hello all
   # Wyetta here. Are we having fun yet?
+  #rivki is here
 end
