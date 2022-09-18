@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :reservations
   get "/signup" => "users#new"
   post "/users" => "users#create"
+  get "/images" => "images#index"
+  post "/images" => "images#create"
+  get "/images:id" => "images#show"
+  patch "/images:id" => "images#update"
+  delete "/images/:id" => "images#destroy"
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"
   get "/logout" => "sessions#destroy"
