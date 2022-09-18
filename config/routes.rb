@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/signup" => "users#new"
   post "/users" => "users#create"
+  resources :reviews
 end
