@@ -1,0 +1,9 @@
+<h1>All reservations</h1>
+<% @reservations.each do |reservation| %>
+  <h2><%= reservation.user_id %></h2>
+  <p>Room id: <%= reservation.room_id %></p>
+  <p>Start date: <%= reservation.start_date %></p>
+  <p>End date: <%= reservation.end_date %></p>
+  <p>Price: <%= reservation.price %></p>
+  <p>Total guests: <%= reservation.total_guests %></p>
+<% end %>
