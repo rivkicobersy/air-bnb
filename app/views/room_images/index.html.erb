@@ -1,0 +1,7 @@
+<h1>All images</h1>
+<% @room_images.each do |image| %>
+  
+  <p>room_id: <%= image.room_id%></p>
+  <p>url: <%= image.url %></p>
+  <%= link_to "More Info", image %>
+<% end %>
