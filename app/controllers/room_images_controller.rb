@@ -1,38 +1,38 @@
 class RoomImagesController < ApplicationController
-    def index
-      images = Image.all
-      render json: images.as_json
-    end
-  
-    def create
-      image = Image.new(
-        name: params[:name],
-        width: params[:width],
-        height: params[:height],
-      )
-      image.save
-      render json: image.as_json
-    end
-  
-    def show
-      image = Image.find_by(id: params[:id])
-      render json: image.as_json
-    end
-  
-    def update
-      image = Image.find_by(id: params[:id])
-      image.name = params[:name] || image.name
-      image.width = params[:width] || image.width
-      image.height = params[:height] || image.height
-      image.save
-      render json: image.as_json
-    end
-  
-    def destroy
-      image = Image.find_by(id: params[:id])
-      image.destroy
-      render json: { message: "Image successfully destroyed." }
-    end
+  def index
+    @room_images = RoomImage.all
+    render template: "room_images/index"
   end
-  
+
+  #   #def create
+  #     image = Image.new(
+  #       room_id: params[:room_id],
+  #       url: params[:url]
+
+  #     )
+  #     image.save
+  #     render template: "images/create"
+  #   end
+
+  #   def show
+  #     @images = Image.find_by(id: params[:id])
+  #     render template: "images/show"
+  #   end
+
+  #   def update
+  #     image = Image.find_by(id: params[:id])
+  #     image.room_id = params[:room_id] || image.room_id
+  #     image.url = params[:url] || image.url
+
+  #     image.save
+  #     render template: "images/update"
+  #   end
+
+  #   def destroy
+  #     image = Image.find_by(id: params[:id])
+  #     image.destroy
+  #     render json: { message: "Image successfully destroyed." }
+  #   end
+  # end
+
 end

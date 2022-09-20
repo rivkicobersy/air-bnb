@@ -8,12 +8,9 @@ Rails.application.routes.draw do
   resources :users
   
   resources :reviews
-  get "/images" => "images#index"
-  post "/images" => "images#create"
-  get "/images:id" => "images#show"
-  patch "/images:id" => "images#update"
-  delete "/images/:id" => "images#destroy"
+
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"
   get "/logout" => "sessions#destroy"
+  resources :room_images
 end
