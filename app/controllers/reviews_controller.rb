@@ -21,10 +21,9 @@ class ReviewsController < ApplicationController
       comment: params[:review][:comment],
     )
     if @review.valid?
-      render template: "reviews/show", status: 201
+      redirect_to "/reviews"
     else
-      pp @review.errors.full_messages
-      render json: { message: "There was an error.", errors: @review.errors.full_messages }, status: 422
+      render :new, status: :unprocessable_entity
     end
   end
 
