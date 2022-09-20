@@ -43,4 +43,10 @@ class ReservationsController < ApplicationController
     @reservation.save
     redirect_to "/reservations"
   end
+
+  def destroy
+    @reservation = Reservation.find_by(id: params[:id])
+    @reservation.destroy
+    redirect_to "/reservations", status: :see_other
+  end
 end
