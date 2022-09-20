@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :reservations
   get "/signup" => "users#new"
   resources :users
-
+  
   resources :reviews
   get "/images" => "images#index"
   post "/images" => "images#create"
