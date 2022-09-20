@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :reservations
   get "/signup" => "users#new"
-  post "/users" => "users#create"
+  resources :users
+  
   resources :reviews
   get "/images" => "images#index"
   post "/images" => "images#create"

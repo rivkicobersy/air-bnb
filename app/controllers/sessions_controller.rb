@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+  def index
+    @sessions = Session.all
+    render template: "sessions/index"
+  end
+
   def new
     render template: "sessions/new"
   end
