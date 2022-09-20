@@ -6,3 +6,5 @@
 <p>Price: <%= @reservation.price %></p>
 <p>Total guests: <%= @reservation.total_guests %></p>
 <a href="/reservations">Back to all reservations</a>
+<%= link_to "Edit reservation", edit_reservation_path(@reservation) %>
+<%= link_to "Destroy reservation", reservation_path(@reservation), data: {turbo_method: :delete} %>
