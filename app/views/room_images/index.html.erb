@@ -1,7 +1,6 @@
 <h1>All images</h1>
-<% @room_images.each do |image| %>
-  
-  <p>room_id: <%= image.room_id%></p>
-  <p>url: <%= image.url %></p>
-  <%= link_to "More Info", image %>
+<% @room_images.each do |room_image| %>
+  <p>room id: <%= room_image.room_id%></p>
+  <p>url: <%= room_image.url %></p>
+  <%= link_to "More Info", room_image %>
 <% end %>

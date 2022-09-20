@@ -14,10 +14,10 @@ class RoomImagesController < ApplicationController
   #     render template: "images/create"
   #   end
 
-  #   def show
-  #     @images = Image.find_by(id: params[:id])
-  #     render template: "images/show"
-  #   end
+  def show
+    @room_image = RoomImage.find_by(id: params[:id])
+    render template: "room_images/show"
+  end
 
   #   def update
   #     image = Image.find_by(id: params[:id])
