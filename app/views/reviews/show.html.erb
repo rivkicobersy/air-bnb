@@ -1,0 +1,6 @@
+<h1>Review info</h1>
+<h2><%= @review.reservation_id %></h2>
+<p>Rating: <%= @review.rating %></p>
+<p>Comment: <%= @review.comment %></p>
+<a href="/reviews">Back to all reviews</a>
+<%= link_to "More Info", @review %>
