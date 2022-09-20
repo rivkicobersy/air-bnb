@@ -26,4 +26,21 @@ class ReservationsController < ApplicationController
     @reservation.save
     redirect_to "/reservations"
   end
+
+  def edit
+    @reservation = Reservation.find_by(id: params[:id])
+    render template: "reservations/edit"
+  end
+
+  def update
+    @reservation = Reservation.find_by(id: params[:id])
+    @reservation.user_id = params[:reservation][:user_id]
+    @reservation.room_id = params[:reservation][:room_id]
+    @reservation.start_date = params[:reservation][:start_date]
+    @reservation.end_date = params[:reservation][:end_date]
+    @reservation.price = params[:reservation][:price]
+    @reservation.total_guests = params[:reservation][:total_guests]
+    @reservation.save
+    redirect_to "/reservations"
+  end
 end
