@@ -4,35 +4,37 @@ class RoomImagesController < ApplicationController
     render template: "room_images/index"
   end
 
-  #   #def create
-  #     image = Image.new(
-  #       room_id: params[:room_id],
-  #       url: params[:url]
+  def new
+    @room_image = RoomImage.new
+    render template: "room_images/new"
+  end
 
-  #     )
-  #     image.save
-  #     render template: "images/create"
-  #   end
+  def create
+    @room_image = RoomImage.new(
+      room_id: params[:room_image][:room_id],
+      url: params[:room_image][:url],
+    )
+    @room_image.save
+    redirect_to "/room_images"
+  end
 
   def show
     @room_image = RoomImage.find_by(id: params[:id])
     render template: "room_images/show"
   end
 
-  #   def update
-  #     image = Image.find_by(id: params[:id])
-  #     image.room_id = params[:room_id] || image.room_id
-  #     image.url = params[:url] || image.url
+  # def update
+  #   @room_image = Image.find_by(id: params[:id])
+  #   room_id: params[:room_image][:room_id],
+  #   url: params[:room_image][:url],
 
-  #     image.save
-  #     render template: "images/update"
-  #   end
-
-  #   def destroy
-  #     image = Image.find_by(id: params[:id])
-  #     image.destroy
-  #     render json: { message: "Image successfully destroyed." }
-  #   end
+  #   @room_image.save
+  #   redirect_to "/room_images"
   # end
 
+  def destroy
+    @room_image = RoomImage.find_by(id: params[:id])
+    @room_image.destroy
+    redirect_to "/room_images", status: :see_other
+  end
 end
