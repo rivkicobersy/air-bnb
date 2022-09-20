@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find_by(id: params["id"])
-    render template: "review/show"
+    render template: "reviews/show"
   end
 
   def new
@@ -16,13 +16,14 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(
-      reservation_id: params["reservation_id"],
-      rating: params["rating"],
-      comment: params["comment"],
+      reservation_id: params[:review][:reservation_id],
+      rating: params[:review][:rating],
+      comment: params[:review][:comment],
     )
     if @review.valid?
       render template: "reviews/show", status: 201
     else
+      pp @review.errors.full_messages
       render json: { message: "There was an error.", errors: @review.errors.full_messages }, status: 422
     end
   end
