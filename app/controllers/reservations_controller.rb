@@ -1,8 +1,6 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user
-
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
     render template: "reservations/index"
   end
 
@@ -17,7 +15,6 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    # @reservation = Reservation.all.by_room_id
     @reservation = Reservation.new(
       user_id: current_user.id,
       room_id: params[:reservation][:room_id],
@@ -25,7 +22,6 @@ class ReservationsController < ApplicationController
       end_date: params[:reservation][:end_date],
       price: params[:reservation][:price],
       start_date: params[:reservation][:start_date],
-      total_guests: params[:reservation][:total_guests],
     )
     @reservation.save
     redirect_to "/reservations"
