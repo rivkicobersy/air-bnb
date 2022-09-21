@@ -1,8 +1,6 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user
-
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
     render template: "reservations/index"
   end
 
@@ -28,6 +26,8 @@ class ReservationsController < ApplicationController
       room_id: params[:reservation][:room_id],
       start_date: params[:reservation][:start_date],
       end_date: params[:reservation][:end_date],
+      price: params[:reservation][:price],
+      start_date: params[:reservation][:start_date],
       price: total,
       total_guests: params[:reservation][:total_guests],
     )
