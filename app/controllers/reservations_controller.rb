@@ -17,6 +17,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    # @reservation = Reservation.all.by_room_id
     @reservation = Reservation.new(
       user_id: current_user.id,
       room_id: params[:reservation][:room_id],
