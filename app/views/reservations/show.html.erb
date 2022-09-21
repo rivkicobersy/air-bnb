@@ -1,6 +1,10 @@
 <h1>reservation info</h1>
 <h2><%= @reservation.user_id %></h2>
 <p>Room Id: <%= @reservation.room_id %></p>
+<p><%= @reservation.room.address %></p>
+<% @reservation.room.room_images.each do |room_image| %> 
+  <img src="<%= room_image.url %>">
+<% end %>
 <p>Start date: <%= @reservation.start_date %></p>
 <p>End date: <%= @reservation.end_date %></p>
 <p>Price: <%= @reservation.price %></p>
