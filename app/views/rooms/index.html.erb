@@ -11,6 +11,14 @@
   <p>Total occupancy: <%= room.total_occupancy %></p>
   <p>Total bedrooms: <%= room.total_bedrooms %></p>
   <p>Total bathrooms: <%= room.total_bathrooms %></p>
+  <% unless room.is_reserved?%>
+  <a>Reserve Room</a>
+  <% end %>
+  <% room.reservations.each do |reservation| %>
+    <h4><%= reservation.user.name %></h4>
+    <%= reservation.start_date %>
+    <%= reservation.end_date %>
+  <% end %>
   <%= link_to "More Info", room %>
 <% end %>
 
