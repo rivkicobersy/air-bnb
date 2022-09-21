@@ -6,7 +6,7 @@
   </div>
   <div>
     <%= form.label :room_id %>
-    <%= form.text_field :room_id %>
+    <%= form.collection_select :room_id, Room.all, :id, :address, include_blank: true %>
   </div>
   <div>
     <%= form.label :start_date %>
